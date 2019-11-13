@@ -1,0 +1,34 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <div class="restaurant-info d-flex justify-content-between mb-3">
+    <div class="restaurant-category">
+      <span class="glyphicon glyphicon-flag"></span> <%= @restaurant.category.capitalize %>
+    </div>
+    <div class="restaurant-address">
+      <span class="glyphicon glyphicon-home"></span> <%= @restaurant.address %>
+    </div>
+    <div class="restaurant-phone">
+      <span class="glyphicon glyphicon-phone"> <%= @restaurant.phone_number %>
+    </div>
+  </div>
+  <div class="restaurant-reviews-head d-flex align-items-center justify-content-start mt-3 mb-3">
+    <h2 class="mr-3">Reviews</h2>
+  </div>
+  <div class="add-new-review">
+    <%= simple_form_for ([@restaurant, @review]) do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating, collection: Review::STARS %>
+      <%= f.button :submit, "Create new review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="row mt-3">
+    <% @reviews.each do |review| %>
+      <div class="restaurant-reviews-tile col-4">
+        <div class="restaurant-reviews-card">
+          <p>Rating: <%= review.rating.to_s %></p>
+          <%= review.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

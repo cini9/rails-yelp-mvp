@@ -66,3 +66,6 @@ gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
 gem 'bootstrap'
 gem 'bootstrap-glyphicons'
+gem 'font-awesome-sass'
+gem 'simple_form'
+gem 'faker'

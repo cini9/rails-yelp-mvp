@@ -1,0 +1,10 @@
+<div class="container">
+  <% @restaurants.each do |restaurant| %>
+    <h1><%= link_to restaurant.name, restaurant_path(restaurant) %></h1>
+    <ul>
+      <li><span class="glyphicon glyphicon-flag"> </span><%= restaurant.category.capitalize %></li>
+      <li><span class="glyphicon glyphicon-home"> </span><%= restaurant.address %></li>
+      <li><span class="glyphicon glyphicon-phone"> <%= restaurant.phone_number %></li>
+    </ul>
+  <% end %>
+</div>
